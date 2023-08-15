@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    
+    <nav>
+      <ul>
+        <li><a href="textToSpech.html">TTS</a></li>
+      </ul>
+    </nav>
+
+    <h1 class="text-center py-4 font-bold
+    text-lg">Text-to-Speech Indonesia - Suara Laki-laki</h1>
+    <textarea id="text-to-read" rows="4" cols="50" class="block mx-auto bg-slate-300"></textarea>
+    <br>
+    <button onclick="speak()" class="bg-green-600 rounded-md p-3 block mx-auto text-white fon">Bacakan</button>
+
+    <script src="https://code.responsivevoice.org/responsivevoice.js"></script>
+    <script>
+        // Fungsi untuk membaca teks dalam bahasa Indonesia dengan suara laki-laki
+        function speak() {
+            const textToRead = document.getElementById("text-to-read").value;
+
+            // Menggunakan SSML dengan ResponsiveVoiceJS
+            const ssmlText = `<speak><prosody rate="medium">${textToRead}</prosody></speak>`;
+
+            // Memanggil fungsi dari ResponsiveVoiceJS untuk membaca teks
+            responsiveVoice.speak(ssmlText, 'Indonesian Male', { rate: 1 });
+        }
+    </script>
+  </body>
+</html>
